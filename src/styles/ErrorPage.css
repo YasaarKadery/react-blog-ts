@@ -1,0 +1,22 @@
+.error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Oxygen Mono", monospace;
+  color: white;
+  flex-direction: column;
+  margin-top: 4rem;
+  font-size: x-large;
+}
+
+.error-status {
+  padding-top: 1rem;
+}
+
+.error-status-text {
+  padding-top: 1rem;
+}
+
+.not-found {
+  padding-top: 1rem;
+}
