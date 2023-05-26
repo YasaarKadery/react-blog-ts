@@ -4,7 +4,7 @@ import './icons/icon.png'
 
 import Nav from './Nav';
 import About from './About';
-import Contact from './Contact';
+import Footer from './Footer';
 import ContactButton from './ContactButton';
 
 type HomePageProps = {
@@ -43,7 +43,7 @@ function HomePage(props: HomePageProps) {
             
                         " 
             />
-            <Contact/>
+            <Footer/>
         </div>
         </>
         
