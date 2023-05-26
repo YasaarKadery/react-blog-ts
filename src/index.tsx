@@ -8,6 +8,8 @@ import {
   RouterProvider
 } from 'react-router-dom';
 import Projects from './Projects';
+import '@fortawesome/fontawesome-free/css/all.css';
+
 
 const router = createBrowserRouter([
   {
@@ -27,10 +29,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    
     <RouterProvider router={router}/>
-    
-    
   </React.StrictMode>
 );
 

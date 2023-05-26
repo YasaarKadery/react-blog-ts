@@ -1,0 +1,39 @@
+.footer {
+  width: 100%;
+  background-color: #1e1d1d;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.container {
+  width: inherit;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+p {
+  margin: 0;
+  font-size: 14px;
+  color: #e8e8e8;
+}
+
+.social-icons {
+  margin-left: 10px;
+}
+
+.social-icons a {
+  display: inline-block;
+  margin-left: 10px;
+  color: #e8e8e8;
+  font-size: 18px;
+}
+
+.social-icons a:hover {
+  color: #ffffff;
+}

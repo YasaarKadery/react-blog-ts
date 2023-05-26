@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: row;
+  flex-direction: column;
 }
 
 .home-page-image {
@@ -16,7 +16,12 @@
   color: rgb(246, 246, 246);
   background-color: rgb(29, 29, 29);
   width: 100%;
-  height: 20rem;
+  height: 30rem;
+}
+.about-page {
+  background-color: rgb(28, 28, 28);
+  width: 100%;
+  height: 40rem;
 }
 
 .text {
@@ -48,4 +53,8 @@
     opacity: 1;
     transform: translateY(0%);
   }
+}
+
+.contact {
+  padding-top: 2rem;
 }

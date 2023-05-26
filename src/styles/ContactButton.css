@@ -1,0 +1,31 @@
+.contact-button {
+  background-color: #f5f5f5;
+  color: black;
+  border: none;
+  border-radius: 4px;
+  padding: 12px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-button:hover {
+  background-color: #313131;
+  transform: translateY(-2px);
+  color: #fff;
+}
+
+.contact-button:focus {
+  outline: none;
+}
+
+.contact-button span {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.contact-button:hover span {
+  transform: translateY(-1px);
+}
