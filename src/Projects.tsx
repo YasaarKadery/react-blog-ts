@@ -13,7 +13,7 @@ interface Project {
 }
 // component that displays the list of projects in the 'projects' page.
 export default function Projects () {
-    const [posts, setPosts] = useState<Project[]>([]);
+  const [posts, setPosts] = useState<Project[]>([]);
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -28,7 +28,6 @@ export default function Projects () {
 
     fetchPosts();
   }, []);
-    console.log(posts)
     return(
         <div>
             <Nav/>
@@ -40,7 +39,6 @@ export default function Projects () {
                     title={post.title}
                     img={post.image_src}
                     date={post.created_at.substring(0,10)}
-                    update={post.updated_at.substring(0,10)}
                     projectId={post.id}
                     />
                 </div>

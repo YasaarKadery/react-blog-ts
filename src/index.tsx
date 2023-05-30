@@ -20,7 +20,7 @@ const router = createBrowserRouter([
   },
   {
         path: "/projects",
-        element: <Projects  title={''} content={''} created_at={''} updated_at={''} image_src ={''}id={0}/>
+        element: <Projects  />
   },
   {
     path: "/projects/:projectId",

@@ -2,7 +2,7 @@ import './styles/Post.css';
 import { useNavigate } from 'react-router-dom';
 
 // component that renders the 'card' for each project in the project page.
-function Post(props: {title: string, date: string, img: string, projectId: number, update: string}) {
+function Post(props: {title: string, date: string, img: string, projectId: number}) {
 
 let navigate = useNavigate();
 const routeChange = () => {
