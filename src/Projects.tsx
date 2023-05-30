@@ -1,25 +1,53 @@
+import { useEffect, useState } from "react";
 import Nav from "./Nav"
 import Post from "./Post"
 import './styles/Projects.css';
 
+interface Project {
+    id: number;
+    title: string;
+    content: string;
+    created_at: string;
+    updated_at: string;
+    image_src: string;
+}
+// component that displays the list of projects in the 'projects' page.
 export default function Projects () {
+    const [posts, setPosts] = useState<Project[]>([]);
 
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const response = await fetch('http://localhost:8080/posts');
+        const data = await response.json();
+        setPosts(data);
+      } catch (error) {
+        console.error('Error fetching blog posts:', error);
+      }
+    };
+
+    fetchPosts();
+  }, []);
+    console.log(posts)
     return(
         <div>
             <Nav/>
             <div className="projects">
-            <Post 
-          title='The Cloud Resume Challenge' 
-          date={new Date()} 
-          img='https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg'
-          projectId={1}/>
-        <Post 
-        title='Dev Blog w/ React & Go' 
-        date={new Date()} 
-        img='https://res.cloudinary.com/practicaldev/image/fetch/s--HOXpPNDw--/c_imagga_scale,f_auto,fl_progressive,h_900,q_auto,w_1600/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/1xofa8chbq27ozlle2jw.png'
-        projectId={2}/>
+        {posts.map((post) => (
+            
+                <div key={post.id}>
+                    <Post
+                    title={post.title}
+                    img={post.image_src}
+                    date={post.created_at.substring(0,10)}
+                    update={post.updated_at.substring(0,10)}
+                    projectId={post.id}
+                    />
+                </div>
+        ))}
         </div>
-            </div>
+      </div>
+
        
         
     )

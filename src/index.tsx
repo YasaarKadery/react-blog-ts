@@ -9,6 +9,7 @@ import {
 } from 'react-router-dom';
 import Projects from './Projects';
 import '@fortawesome/fontawesome-free/css/all.css';
+import ProjectDetails from './ProjectDetails';
 
 
 const router = createBrowserRouter([
@@ -19,8 +20,13 @@ const router = createBrowserRouter([
   },
   {
         path: "/projects",
-        element: <Projects/>
+        element: <Projects  title={''} content={''} created_at={''} updated_at={''} image_src ={''}id={0}/>
   },
+  {
+    path: "/projects/:projectId",
+    element: <ProjectDetails/>
+  }
+
 ]);
 
 

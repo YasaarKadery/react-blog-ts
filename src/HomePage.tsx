@@ -10,7 +10,7 @@ import ContactButton from './ContactButton';
 type HomePageProps = {
     children?: React.ReactNode;
 }
-
+// the home page
 function HomePage(props: HomePageProps) {
     return(
         <>

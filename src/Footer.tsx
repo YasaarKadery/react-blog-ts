@@ -1,7 +1,9 @@
 import React from 'react';
 import './styles/Contact.css'; // Import the CSS file
-
-const Footer: React.FC = () => {
+type FooterProps = {
+  children?: React.ReactNode
+}
+const Footer = ({children}: FooterProps) => {
   return (
     <footer className="footer">
       <div className="container">

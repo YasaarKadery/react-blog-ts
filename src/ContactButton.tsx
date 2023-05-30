@@ -1,18 +1,16 @@
 import React from 'react';
 import './styles/ContactButton.css'; // Import the CSS file
 
-const ContactButton: React.FC = () => {
+ export default function ContactButton() {
   const handleClick = () => {
-    // Logic for handling the button click event
-    // You can implement your desired behavior here, such as opening a contact form or redirecting to a contact page
-    // Example: window.open('https://example.com/contact', '_blank');
+    window.open('https://docs.google.com/document/d/e/2PACX-1vSRTYGQqDMLlALqpGeALS-Y8KxfVk38UHONkpQCSBw1SZ2c9h9FlGcXQZ_h7gb5Wg/pub', '_blank')
   };
 
   return (
     <button className="contact-button" onClick={handleClick}>
-      <span>Contact Me</span>
+      <span>Resume</span>
     </button>
   );
 };
 
-export default ContactButton;
+

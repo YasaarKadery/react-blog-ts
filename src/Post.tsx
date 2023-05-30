@@ -1,8 +1,8 @@
 import './styles/Post.css';
 import { useNavigate } from 'react-router-dom';
 
-
-function Post(props: {title: string, date: Date, img: string, projectId: number}) {
+// component that renders the 'card' for each project in the project page.
+function Post(props: {title: string, date: string, img: string, projectId: number, update: string}) {
 
 let navigate = useNavigate();
 const routeChange = () => {
@@ -16,7 +16,7 @@ return (
     </div>
     <div className="card__body">
       <h4>{props.title}</h4>
-      <h5>{props.date.toLocaleDateString()}</h5>
+      <h5>{props.date}</h5>
     </div>
   </div>
 )

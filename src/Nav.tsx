@@ -1,7 +1,7 @@
 import './styles/style.css';
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+//  nav bar
 function Nav(props: any) {
     return (
         <div className="nav-bar-container">
