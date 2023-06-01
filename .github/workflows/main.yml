@@ -38,3 +38,6 @@ jobs:
 
       - name: Sync Build Folder to S3
         run: aws s3 sync build/ ${{secrets.AWS_S3_BUCKET}}
+        
+      - name: Invalidate Cloudfront Cache
+        run: aws s3 create-invalidation --distribution-id=E2N27J7VKU8P8Y --paths="/*"
