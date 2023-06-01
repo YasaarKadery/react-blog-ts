@@ -1,14 +1,15 @@
-import './styles/style.css';
-import React from 'react';
-import { Link } from 'react-router-dom';
+import "./styles/style.css";
+import React from "react";
+import { Link } from "react-router-dom";
 //  nav bar
-function Nav(props: any) {
-    return (
-        <div className="nav-bar-container">
-            <nav className="nav">
+export default function Nav() {
+  return (
+    <div className="nav-bar-container">
+      <nav className="nav">
         <div className="kadery-dev">
-    
-          <h1><Link to="/">kadery.dev </Link></h1>
+          <h1>
+            <Link to="/">kadery.dev </Link>
+          </h1>
         </div>
         <div className="item">
           <Link to="/">home</Link>
@@ -17,17 +18,24 @@ function Nav(props: any) {
           <Link to="/projects">projects</Link>
         </div>
         <div className="item">
-          <Link to="https://github.com/YasaarKadery" 
-          target='_blank' rel="noreferrer">github</Link>
+          <Link
+            to="https://github.com/YasaarKadery"
+            target="_blank"
+            rel="noreferrer"
+          >
+            github
+          </Link>
         </div>
         <div className="item">
-          <Link to="https://www.linkedin.com/in/yasaar-kadery/" 
-          target='_blank' rel="noreferrer">linkedin</Link>
+          <Link
+            to="https://www.linkedin.com/in/yasaar-kadery/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            linkedin
+          </Link>
         </div>
       </nav>
-        </div>
-        
-    );
+    </div>
+  );
 }
-
-export default Nav;

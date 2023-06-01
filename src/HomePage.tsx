@@ -1,36 +1,30 @@
+import "./styles/HomePage.css";
+import "./icons/icon.png";
 
-import './styles/HomePage.css';
-import './icons/icon.png'
+import Nav from "./Nav";
+import About from "./About";
+import Footer from "./Footer";
+import ContactButton from "./ContactButton";
 
-import Nav from './Nav';
-import About from './About';
-import Footer from './Footer';
-import ContactButton from './ContactButton';
-
-type HomePageProps = {
-    children?: React.ReactNode;
-}
 // the home page
-function HomePage(props: HomePageProps) {
-    return(
-        <>
-        <Nav/>
-        <div className="main-page">
-            <div className='home-page-image'>
-                
-                <div>
-                <h2 className='text'>hi,</h2>
-                <h1 className='text2'>i'm yasaar</h1>
-                <p className='text3'>i write code and sometimes make music</p>
-                </div> 
-                <div className='contact'>
-                <ContactButton/>
-                </div>
-                
-            </div>
-            <About 
-            name='' 
-            description="I'm Yasaar Kadery, a passionate fullstack software developer. 
+export default function HomePage() {
+  return (
+    <>
+      <Nav />
+      <div className="main-page">
+        <div className="home-page-image">
+          <div>
+            <h2 className="text">hi,</h2>
+            <h1 className="text2">i'm yasaar</h1>
+            <p className="text3">i write code and sometimes make music</p>
+          </div>
+          <div className="contact">
+            <ContactButton />
+          </div>
+        </div>
+        <About
+          name=""
+          description="I'm Yasaar Kadery, a passionate fullstack software developer. 
 
             With multiple AWS certifications under my belt, I have a deep understanding of cloud computing and infrastructure. I excel in architecting scalable and efficient solutions on the AWS platform, leveraging its services to drive innovation and optimize performance.
             
@@ -41,13 +35,10 @@ function HomePage(props: HomePageProps) {
             
             
             
-                        " 
-            />
-            <Footer/>
-        </div>
-        </>
-        
-    )
+                        "
+        />
+        <Footer />
+      </div>
+    </>
+  );
 }
-
-export default HomePage;
