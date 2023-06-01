@@ -7,7 +7,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Projects from "./Projects";
 import "@fortawesome/fontawesome-free/css/all.css";
 import ProjectDetails from "./ProjectDetails";
-import MarkdownComponent from "./MarkdownComponent";
 
 const router = createBrowserRouter([
   {
@@ -22,10 +21,6 @@ const router = createBrowserRouter([
   {
     path: "/projects/:projectId",
     element: <ProjectDetails />,
-  },
-  {
-    path: "/markdown",
-    element: <MarkdownComponent />,
   },
 ]);
 

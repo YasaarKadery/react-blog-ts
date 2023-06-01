@@ -2,12 +2,15 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Nav from "./Nav";
 import "./styles/ProjectDetails.css";
+import MarkdownComponent from "./MarkdownComponent";
+import ErrorPage from "./ErrorPage";
 
 interface BlogPost {
   title: string;
   author: string;
   content: string;
   created_at: string;
+  markdown: string;
 }
 
 export default function ProjectDetails() {
@@ -29,18 +32,15 @@ export default function ProjectDetails() {
 
     fetchPosts();
   }, [projectId]);
-
-  return (
-    <div>
-      <Nav />
-      <article className="blog-post">
-        <h1 className="blog-post-title">{posts?.title}</h1>
-        <p className="blog-post-meta">
-          <span className="blog-post-author">{posts?.author}</span>
-          <time className="blog-post-date">{posts?.created_at}</time>
-        </p>
-        <div className="blog-post-content">{posts?.content}</div>
-      </article>
-    </div>
-  );
+  // validate  if api returned anything
+  if (posts) {
+    return (
+      <div>
+        <Nav />
+        <MarkdownComponent link={posts.markdown} />
+      </div>
+    );
+  } else {
+    return <ErrorPage />;
+  }
 }

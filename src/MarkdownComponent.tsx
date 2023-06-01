@@ -3,22 +3,22 @@ import ReactMarkdown from "react-markdown";
 import gfm from "remark-gfm";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { okaidia as Style } from "react-syntax-highlighter/dist/esm/styles/prism";
-import Nav from "./Nav";
 import "./styles/Markdown.css";
 
-const MarkdownComponent: React.FC = () => {
+type MarkdownProps = {
+  link: string;
+};
+export default function MarkdownComponent({ link }: MarkdownProps) {
   const [markdown, setMarkdown] = useState<string>("");
 
   useEffect(() => {
-    fetch(
-      "https://dev-blog-markdown-files1341513.s3.amazonaws.com/cloudResumeChallenge.md"
-    )
+    fetch(link)
       .then((response) => response.text())
       .then((data) => {
         setMarkdown(data);
       })
       .catch((error: Error) => console.error(error));
-  }, []);
+  }, [link]);
 
   const components = {
     code({ node, inline, className, children, ...props }: any) {
@@ -41,8 +41,7 @@ const MarkdownComponent: React.FC = () => {
 
   return (
     <div>
-      <Nav />
-      <div className="post">
+      <div className="markdown-post">
         <ReactMarkdown
           components={components}
           children={markdown}
@@ -51,6 +50,4 @@ const MarkdownComponent: React.FC = () => {
       </div>
     </div>
   );
-};
-
-export default MarkdownComponent;
+}
