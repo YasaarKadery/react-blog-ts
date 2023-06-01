@@ -1,0 +1,16 @@
+.post {
+  display: flex;
+  flex-direction: column;
+  width: 800px;
+  margin: auto;
+  padding-top: 1rem;
+}
+
+h2 {
+  padding-top: 1rem;
+}
+
+/* hr {
+  margin-top: 40px;
+  margin-bottom: 40px;
+} */

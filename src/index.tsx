@@ -1,41 +1,39 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import React from "react";
+import ReactDOM from "react-dom/client";
 
-import HomePage from './HomePage';
-import ErrorPage from './ErrorPage';
-import {
-  createBrowserRouter,
-  RouterProvider
-} from 'react-router-dom';
-import Projects from './Projects';
-import '@fortawesome/fontawesome-free/css/all.css';
-import ProjectDetails from './ProjectDetails';
-
+import HomePage from "./HomePage";
+import ErrorPage from "./ErrorPage";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Projects from "./Projects";
+import "@fortawesome/fontawesome-free/css/all.css";
+import ProjectDetails from "./ProjectDetails";
+import MarkdownComponent from "./MarkdownComponent";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <HomePage/>,
-    errorElement: <ErrorPage/>,
+    element: <HomePage />,
+    errorElement: <ErrorPage />,
   },
   {
-        path: "/projects",
-        element: <Projects  />
+    path: "/projects",
+    element: <Projects />,
   },
   {
     path: "/projects/:projectId",
-    element: <ProjectDetails/>
-  }
-
+    element: <ProjectDetails />,
+  },
+  {
+    path: "/markdown",
+    element: <MarkdownComponent />,
+  },
 ]);
 
-
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router}/>
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
-

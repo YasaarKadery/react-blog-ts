@@ -26,33 +26,12 @@
 
 .text {
   font-weight: bold;
-  animation: 3s anim-text ease-out 1;
 }
 .text2 {
   font-weight: bold;
-  animation: 7s anim-text ease-out 1;
 }
 .text3 {
   font-weight: bold;
-  animation: 14s anim-text ease-out 1;
-}
-
-@keyframes anim-text {
-  0% {
-    opacity: 0;
-    transform: translateY(80%);
-  }
-  20% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-    transform: translateY(0%);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0%);
-  }
 }
 
 .contact {
