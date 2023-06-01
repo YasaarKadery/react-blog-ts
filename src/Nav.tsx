@@ -8,7 +8,9 @@ export default function Nav() {
       <nav className="nav">
         <div className="kadery-dev">
           <h1>
-            <Link to="/">kadery.dev </Link>
+            <Link to="/">
+              <i className="fa-solid fa-code"></i>
+            </Link>
           </h1>
         </div>
         <div className="item">

@@ -4,7 +4,7 @@
 
 ## Introduction
 
-These past few months I've been learning Go. I've always been more of a backend developer but I found myself tired of testing my APIs via curl. So I decided to teach myself React aswell so I could build my own UI. Since I was already learning React and Go, why not build something while I'm at it? And just for fun, let's deploy it to the cloud. And this website is the result of my hard work.
+These past few months I've been learning Go. I've always been more of a backend developer but I found myself tired of testing my APIs via curl. So I decided to teach myself React aswell so I could build my own UI. Since I was already learning React and Go, why not build something while I'm at it? And just for fun, let's deploy it to the cloud. This project is an extension of my previous project, the Cloud Resume Challenge (I have another blog post on that project in my website as well).
 
 ## The Backend
 
