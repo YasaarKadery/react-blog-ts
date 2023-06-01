@@ -34,7 +34,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: build
-          path: 'build/'
+          path: build/
 
       - name: Sync Build Folder to S3
-        run: aws s3 sync './build' ${{secrets.AWS_S3_BUCKET}}
+        run: aws s3 sync ./build ${{secrets.AWS_S3_BUCKET}}
