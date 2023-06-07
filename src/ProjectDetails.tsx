@@ -21,7 +21,7 @@ export default function ProjectDetails() {
       setIsLoading(true);
       try {
         const response = await fetch(
-          `http://localhost:8080/posts/${projectId}`
+          `http://ec2-18-234-188-90.compute-1.amazonaws.com/posts/${projectId}`
         );
         const data = await response.json();
         setPosts(data);

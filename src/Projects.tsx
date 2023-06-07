@@ -21,7 +21,9 @@ export default function Projects() {
     const fetchPosts = async () => {
       setLoading(true);
       try {
-        const response = await fetch("http://localhost:8080/posts");
+        const response = await fetch(
+          "http://ec2-18-234-188-90.compute-1.amazonaws.com/posts"
+        );
         const data = await response.json();
         setPosts(data);
       } catch (error) {
