@@ -25,13 +25,15 @@
 }
 
 .text {
-  font-weight: bold;
+  font-size: 3rem;
 }
 .text2 {
   font-weight: bold;
+  font-size: 4rem;
 }
 .text3 {
   font-weight: bold;
+  font-size: 1rem;
 }
 
 .contact {

@@ -24,16 +24,11 @@ export default function HomePage() {
         </div>
         <About
           name=""
-          description="I'm Yasaar Kadery, a passionate fullstack software developer. 
-
-            With multiple AWS certifications under my belt, I have a deep understanding of cloud computing and infrastructure. I excel in architecting scalable and efficient solutions on the AWS platform, leveraging its services to drive innovation and optimize performance.
-            
-            I have hands-on experience with Go, Python, JavaScript, and Java, allowing me to seamlessly navigate both frontend and backend development. 
-            
-            I thrive in dynamic and collaborative environments, where I can leverage my problem-solving skills and attention to detail to create impactful solutions. I enjoy taking on challenges and finding innovative ways to tackle complex problems. I am committed to continuous learning and expanding my skill set.
-            
-            
-            
+          description="Hi, I'm Yasaar! I'm a software developer who loves to build fullstack applications. I'm also quite
+          fond of the cloud and have a few AWS certifications under my belt. I graduated from Florida International University with a degree
+          in Computer Science in 2023.One of the things that really keeps me fired up in this field is the rapid pace of change. 
+          There's always something new to learn, a fresh perspective to explore, or a groundbreaking tool to master. 
+          When I'm not hunched over my desk debugging code, I like to read fantasy novels and make music.
             
                         "
         />
