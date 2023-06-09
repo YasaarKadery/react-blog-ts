@@ -67,4 +67,48 @@ There are many IaC tools out there. AWS has it's very own IaC "tool" called AWS 
 When I first read about Infrastructure as Code I was daunted. There was quite a bit of information to digest and this entire concept was new to me. After reading a few of the Terraform tutorials, I started to realize the concepts were actually quite simple, especially for my own use case. The Terraform workflow really just boiled down to creating your resources in Terraform's configuration language (which is relatively intuitive), planning the new state of your infrastructure and comparing it the current state, and finally letting Terraform automatically provision your resources for you. Here's an example of what it looks like:
 ![terraform resource](https://media.licdn.com/dms/image/D4E12AQHJXKpb4TBwKw/article-inline_image-shrink_1500_2232/0/1672605079368?e=1691625600&v=beta&t=awj0Br9q8yknKhgRaTahDDp5tAobqhFcKjXPGpOJW2Q)
 
-As you can see in the picture above, the Terraform configuration file really just consists of a bunch of these "resource" blocks that define different AWS resources or even IAM roles/policies. Once I finished writing my configuration all I had to do was type a few commands in the terminal and my resources were automatically deployed to AWS! You can refer to my entire code here.
+As you can see in the picture above, the Terraform configuration file really just consists of a bunch of these "resource" blocks that define different AWS resources or even IAM roles/policies. Once I finished writing my configuration all I had to do was type a few commands in the terminal and my resources were automatically deployed to AWS! You can refer to my entire [code](https://github.com/YasaarKadery/my-resume-infra) here.
+
+## Continuous Integration, Continuous Delivery
+
+You may have heard of the term CI/CD before. CI/CD stands for Continuous Integration, Continuous Delivery. Sounds fancy, but what does that even mean? Like me, you might have had a vague idea about what it means. But what does it specifically mean? Continuous Integration is just the practice of consistently adding code changes to a singular shared repository, automatically testing the new code, and automatically building if tests pass.
+
+Continuous Delivery works in tandem with Continuous Integration by automating the provision of any infrastructure (if necessary) and application release processes. If CI is testing and building the application, CD is deploying the application smoothly to any development or production environment. So basically CI/CD is a bunch of automation. <em>If you are a fan of the game Factorio, you'll love this.</em>
+
+---
+
+So how does this all fit in to the Challenge? Well the final steps of the Cloud Resume Challenge were to create two seperate repositories, one for front end and one for back end. Then, use any CI/CD tool to have tests run whenever an update was pushed to the main branch of the repositories. For example, suppose I wanted to add another lambda function that would reset the number of website visitors stored in my database. I could update my back end repository which holds my Terraform configuration files and push it to the main branch, which would then run a few tests to make sure the resources I defined were valid. If the tests pass, the update gets pushed to the main branch and Terraform deploys the newly defined resources to the cloud.
+
+## Github Actions
+
+I used Github Actions as my CI/CD platform because it seemed simpler to use, though there are many options available (Gitlab, Jenkins, etc). The way Github Action works is you have a YAML file in your Github repo somewhere that defines what to run when certain conditions are met. For example, I configured my repository to run tests whenever changes are pushed onto the main branch. These tests (or "jobs") differed for each repository. For the back end repository, I added a Cypress test that made sure the API returned a status code of 200. I also added a few Terraform commands that validated the configuration and made sure there were no errors in the new state.
+
+![GH actions](https://media.licdn.com/dms/image/D4E12AQGdejOs6F6jag/article-inline_image-shrink_1000_1488/0/1672607142881?e=1691625600&v=beta&t=wHmvvl1egOJRdwC-FnPIMhHXu99JQrtthXQfUtuCO3I)
+
+his part of the challenge was a bit challenging. Since running the Terraform commands required me to enter my AWS credentials in my local environment, how would I do this in some virtual container that is running these scripts? Surely I wouldn't hard code my credentials in my public repository for the world to see? It took some time before I learned of a neat thing called Github Secrets which let me add in "secret" information in my workflow. I could now add in confidential information like my AWS secret access key without worrying about any bad actors!
+
+The front end part of this step was very similar. The goal was upload any changes to my repository to the S3 bucket where my resume website is located. I had to use a publicly available Github Action called S3 sync. I also had to add confidential AWS credentials in my workflow and was saved by Github Secrets once again. However I ran into a problem. I pushed changes onto my branch, the tests passed, and I smiled. I quickly checked my website, eager to see my new changes displayed in front of me, only to find the old version of my website looking back at me. I refreshed. The old website didn't change. I refreshed again. Nothing. Changed. What went wrong?
+
+---
+
+## Caching
+
+After a few hours of research I realized the issue. It had to do with the way caching works with CloudFront edge locations. You see, my website is hosted in some S3 bucket somewhere in the United States in some Amazon server. When someone enters "yasaarkadery.com" into their browser here's what happens:
+
+![Cloudfront](https://media.licdn.com/dms/image/D4E12AQEvIPJXPGPAGg/article-inline_image-shrink_1500_2232/0/1672608593816?e=1691625600&v=beta&t=m1X3MWrGbVSCZaMz9s3gXgJIu0-9e-WoacWsJMKynWg)
+
+DNS routes the request to the nearest edge location. This is done to reduce latency. If the requested object is in the cache at that edge location, it returns the object. If it isn't in the cache, then Cloudfront forwards the request to the origin server (in this case my s3 bucket hosting my website) and then returns the object back to the edge location. Once the edge location recieves the object, it forwards it back to the user and also adds the object to it's cache.
+
+So essentially what is happening is my requests are returning the cached version of my website. Normally the cache's TTL (time to live) is 24 hours so that is why even after a few hours the website was not updating. Thankfully, this is an easy problem to solve. I could just wait 24 hours, but what if my website really needed an update this instant? Using the AWS Command Line Interface I could just run a command that invalidates the cache for my own Cloudfront distribution:
+
+```bash
+aws cloudfront create-invalidation --distribution-id {distribution_ID} --paths "/{your-path-here}"
+```
+
+Once I ran that command, I refreshed my website and it worked! The new changes were working correctly. And with that, the Cloud Resume Challenge was complete. I had succesfully deployed a website to the cloud incorporating many best practices used by cloud and DevOp engineers on a daily basis.
+
+---
+
+## Conclusion
+
+This challenge was time-consuming and sometimes a bit frustrating but the experience was worth it. I learned so much about general networking concepts, important DevOps best practices and a newfound passion for technology in general. Specifically when learning about DNS and caches. When you really think about it, the fact that we can access content stored on the other side of planet in seconds is fascinating! Anyways, I hoped these articles taught you something or helped you on your own Cloud Resume Challenge. Special shout out to Forrest Brazeal for creating this challenge!
