@@ -21,7 +21,7 @@ export default function ProjectDetails() {
       setIsLoading(true);
       try {
         const response = await fetch(
-          `https://zv2paatiz9.execute-api.us-east-1.amazonaws.com/posts/${projectId}`
+          `https://qhsr08ti1l.execute-api.us-east-1.amazonaws.com/posts/${projectId}`
         );
         const data = await response.json();
         setPosts(data);
