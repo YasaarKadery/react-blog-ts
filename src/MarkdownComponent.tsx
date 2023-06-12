@@ -4,6 +4,8 @@ import gfm from "remark-gfm";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { okaidia as Style } from "react-syntax-highlighter/dist/esm/styles/prism";
 import "./styles/Markdown.css";
+import remarkGfm from "remark-gfm";
+import rehypeFilter from "react-markdown/lib/rehype-filter";
 
 type MarkdownProps = {
   link: string;
@@ -45,7 +47,7 @@ export default function MarkdownComponent({ link }: MarkdownProps) {
         <ReactMarkdown
           components={components}
           children={markdown}
-          remarkPlugins={[gfm]}
+          remarkPlugins={[remarkGfm]}
         />
       </div>
     </div>
