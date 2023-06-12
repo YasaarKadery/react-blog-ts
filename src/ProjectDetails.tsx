@@ -6,6 +6,7 @@ import MarkdownComponent from "./MarkdownComponent";
 import ErrorPage from "./ErrorPage";
 
 import Loader from "./Loader";
+import Footer from "./Footer";
 
 type BlogPost = {
   markdown: string;
@@ -42,6 +43,7 @@ export default function ProjectDetails() {
       <div>
         <Nav />
         <MarkdownComponent link={posts.markdown} />
+        <Footer />
       </div>
     );
   } else {

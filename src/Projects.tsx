@@ -3,6 +3,7 @@ import Nav from "./Nav";
 import Post from "./Post";
 import "./styles/Projects.css";
 import Loader from "./Loader";
+import Footer from "./Footer";
 
 type Project = {
   id: number;
@@ -52,6 +53,7 @@ export default function Projects() {
           </div>
         ))}
       </div>
+      <Footer />
     </div>
   );
 }
