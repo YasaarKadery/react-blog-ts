@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
-import gfm from "remark-gfm";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { okaidia as Style } from "react-syntax-highlighter/dist/esm/styles/prism";
 import "./styles/Markdown.css";
 import remarkGfm from "remark-gfm";
-import rehypeFilter from "react-markdown/lib/rehype-filter";
 
 type MarkdownProps = {
   link: string;
