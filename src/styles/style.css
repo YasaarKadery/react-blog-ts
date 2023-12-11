@@ -8,13 +8,13 @@ html {
 }
 body {
   margin: 0;
-  background-color: rgb(23, 23, 23);
+  background-color: rgb(28, 28, 28);
 }
 .nav-bar-container {
   position: sticky; /* Set the navbar to fixed position */
   top: 0; /* Position the navbar at the top of the page */
   width: 100%; /* Full width */
-  background-color: rgb(27, 26, 26);
+  background-color: rgb(28, 28, 28);
   box-shadow: 5px 5px 5px rgb(21, 21, 21);
 }
 
@@ -31,21 +31,21 @@ body {
   padding: 1rem;
 }
 
-a {
+.nav-link {
   color: white;
   text-decoration: none;
   overflow: hidden;
   position: relative;
   display: inline-block;
 }
-a::before,
-a::after {
+.nav-link::before,
+.nav-link::after {
   content: "";
   position: absolute;
   width: 100%;
   left: 0;
 }
-a::before {
+.nav-link::before {
   background-color: #f5fcff;
   height: 2px;
   bottom: 0;
@@ -54,7 +54,7 @@ a::before {
   transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
 }
 
-a:hover::before {
+.nav-link:hover::before {
   transform-origin: 0% 50%;
   transform: scaleX(1);
 }

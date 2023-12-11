@@ -8,24 +8,24 @@ export default function Nav() {
       <nav className="nav">
         <div className="kadery-dev">
           <h1>
-            <Link to="/">
+            <Link to="/" className="nav-link">
               <i className="fa-solid fa-code"></i>
             </Link>
           </h1>
         </div>
         <div className="item">
-          <Link to="/">home</Link>
-        </div>
-        <div className="item">
-          <Link to="/projects">projects</Link>
+          <Link to="/" className="nav-link">
+            Home
+          </Link>
         </div>
         <div className="item">
           <Link
             to="https://github.com/YasaarKadery"
             target="_blank"
             rel="noreferrer"
+            className="nav-link"
           >
-            github
+            Github
           </Link>
         </div>
         <div className="item">
@@ -33,8 +33,9 @@ export default function Nav() {
             to="https://www.linkedin.com/in/yasaar-kadery/"
             target="_blank"
             rel="noreferrer"
+            className="nav-link"
           >
-            linkedin
+            LinkedIn
           </Link>
         </div>
       </nav>
