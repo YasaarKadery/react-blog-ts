@@ -30,16 +30,19 @@ export default function HomePage() {
             <h3>Here are some projects of mine:</h3>
             <ul className="home-page-blog-list">
               <HomePageLink
-                link="DEVELOPER BLOG"
+                linkName="DEVELOPER BLOG"
                 description="A foray into deploying websites to the cloud"
+                href="/projects/3"
               ></HomePageLink>
               <HomePageLink
-                link="NAVIGUARDIAN"
+                linkName="NAVIGUARDIAN"
                 description="How I won a Hackathon using AI"
+                href="https://devpost.com/software/naviguardian"
               ></HomePageLink>
               <HomePageLink
-                link="AMAZON REVIEWS"
+                linkName="AMAZON REVIEWS"
                 description="Sentiment Analysis using Neural Networks"
+                href="https://github.com/YasaarKadery/sentiment-analysis/blob/main/sentiment-analysis.ipynb"
               ></HomePageLink>
             </ul>
           </div>
