@@ -32,7 +32,7 @@ export default function HomePage() {
               <HomePageLink
                 linkName="DEVELOPER BLOG"
                 description="A foray into deploying websites to the cloud"
-                href="/projects/3"
+                href="/projects/devblog"
               ></HomePageLink>
               <HomePageLink
                 linkName="NAVIGUARDIAN"

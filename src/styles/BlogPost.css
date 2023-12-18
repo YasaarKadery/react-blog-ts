@@ -1,0 +1,40 @@
+.blog-post {
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  padding: 20px;
+  margin: 0 auto;
+}
+.banner-image {
+  padding-top: 1rem;
+}
+.banner-page-break {
+  border-top: 2px solid;
+  margin: 10px 0;
+  color: rgb(197, 194, 194);
+}
+.blog-post-subsection {
+  padding-bottom: 1rem;
+}
+.blog-post-code-block {
+  padding-bottom: 1rem;
+}
+.blog-post-paragraph {
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+.inline-code {
+  background-color: #45454517;
+  padding: 2px 4px;
+  border: 1px solid #4f4f4f;
+  /* border-radius: 4px; */
+  /* font-family: "Courier New", monospace; */
+  color: aliceblue;
+  font-weight: bold;
+}
+ol {
+  margin-left: 3rem;
+}
