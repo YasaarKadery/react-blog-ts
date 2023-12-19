@@ -16,6 +16,7 @@ body {
   width: 100%; /* Full width */
   background-color: rgb(28, 28, 28);
   box-shadow: 5px 5px 5px rgb(21, 21, 21);
+  z-index: 1000;
 }
 
 .nav li {

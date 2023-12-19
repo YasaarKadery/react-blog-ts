@@ -66,6 +66,12 @@ export default function DevBlog() {
           then rendered via React (We'll get to that later).
         </p>
         <p className="blog-post-paragraph">
+          EDIT: As of 12/18/2023, I changed the way I serve blog post content.
+          From now I on, I will use a mix of custom react components and
+          converting markdown to jsx using the{" "}
+          <code className="inline-code">markdown-to-jsx</code> library.
+        </p>
+        <p className="blog-post-paragraph">
           Anyways, now that we've created our Post model, let's actually
           intiialize a connection to the database. To do this we'll be using the{" "}
           <code className="inline-code">database/sql</code> and{" "}

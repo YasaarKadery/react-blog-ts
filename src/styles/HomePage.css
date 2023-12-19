@@ -12,10 +12,10 @@
   justify-content: center;
   flex-direction: column;
   font-family: "JetBrains Mono", monospace;
-  /* font-family: 'Oxygen Mono', monospace; */
   color: rgb(246, 246, 246);
-  width: 748px;
-  margin: auto;
+  max-width: 800px;
+  padding: 20px;
+  margin: 0 auto;
 }
 .about-page {
   background-color: rgb(28, 28, 28);
