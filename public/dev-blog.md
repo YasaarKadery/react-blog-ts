@@ -2,23 +2,15 @@
 
 ---
 
-&nbsp;
-
 ![Go and React](https://golang.ch/wp-content/uploads/2022/06/1_I573jH5jB7Olg23gWSxwrA.png)
 
 ## Introduction
-
-&nbsp;
 
 These past few months I've been learning Go. I've always been more of a backend developer but I found myself tired of testing my APIs via curl. So I decided to teach myself React as well so I could build my own UI. Since I was already learning React and Go, why not build something while I'm at it? And just for fun, let's deploy it to the cloud. This project is an extension of my previous project, the Cloud Resume Challenge (I have another blog post on that project in my website as well).
 
 ## The Backend
 
-&nbsp;
-
 I usually start projects in the backend. I like to map out the database and how the data should "flow" between the browser and database. So I made came up with this Go struct as a model for my database.
-
-&nbsp;
 
 ```go
 type Post struct {
@@ -31,8 +23,6 @@ type Post struct {
 	Markdown  string `json:"markdown"`
 }
 ```
-
-&nbsp;
 
 Pretty basic attributes for a blog post. The first 5 are self-explanatory, but `ImageSrc` and `Markdown` may be a bit confusing.` ImageSrc` simply holds the image URL for the post thumbnail. `Markdown` holds the link to a markdown file. All my blog posts are written in markdown and rendered to the browser via the `react-markdown` library.
 
@@ -203,35 +193,26 @@ func (app *application) getPosts(w http.ResponseWriter, r *http.Request, _ httpr
 ```
 
 Let's break it down line by line, starting with the parameters:
-&nbsp;
 
 `(app *application)` is a receiver argument. It means this function is bound to the application struct we defined earlier, which allows the function to access the fields and methods of the application struct. In this case, app is an instance of application and it's a pointer, allowing us to access the db connection we opened in the `main()` function.
 
-&nbsp;
-
 `w http.ReponseWriter` is an interface that a HTTP response writer should implement. It's essentially an object that can write the HTTP response. For example, `w.Header().Set("Content-Type", "application/json")` is used to set the response's content type to `"application/json"`.
-
-&nbsp;
 
 `r *http.Request` is a struct that represents the HTTP request that the client sent to the server. It contains information like the HTTP method (GET, POST, etc.), the URL, headers, body, etc. Typically you would use it to read request data.
 
-&nbsp;
-
 `_httprouter.Params` represents the parameters from the HTTP route, if there are any. In this case, the underscore \_ is used to ignore this parameter because it's not being used in the function. If this route had parameters (like `/posts/:id`), you could use `httprouter.Params` to access those parameters (which we do later).
-
-&nbsp;
 
 And inside the function all we really do is:
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. Set the HTTP response type to `"application/json"`
+1. Set the HTTP response type to `"application/json"`
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. Create a slice (or array) of struct `Post` to store the response from the database.
+2. Create a slice (or array) of struct `Post` to store the response from the database.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3. Use the `db.Query` function to execute a SQL command, in this case selecting all the posts from the table.
+3. Use the `db.Query` function to execute a SQL command, in this case selecting all the posts from the table.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4. Use the `Scan()` function on the `results` variable to store each post returned into the array of structs.
+4. Use the `Scan()` function on the `results` variable to store each post returned into the array of structs.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5. Return the selected rows from the database in JSON.
+5. Return the selected rows from the database in JSON.
 
 And now we can add this route inside `main.go`.
 

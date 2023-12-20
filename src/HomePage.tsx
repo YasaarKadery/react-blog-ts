@@ -31,7 +31,7 @@ export default function HomePage() {
             <ul className="home-page-blog-list">
               <HomePageLink
                 linkName="DEVELOPER BLOG"
-                description="A foray into deploying websites to the cloud"
+                description="How I built this website using React, Go & AWS"
                 href="/projects/devblog"
               ></HomePageLink>
               <HomePageLink
@@ -43,6 +43,11 @@ export default function HomePage() {
                 linkName="AMAZON REVIEWS"
                 description="Sentiment Analysis using Neural Networks"
                 href="https://github.com/YasaarKadery/sentiment-analysis/blob/main/sentiment-analysis.ipynb"
+              ></HomePageLink>
+              <HomePageLink
+                linkName="CLOUD RESUME CHALLENGE"
+                description="Deploying a static website to AWS"
+                href="/projects/cloud-resume-challenge"
               ></HomePageLink>
             </ul>
           </div>

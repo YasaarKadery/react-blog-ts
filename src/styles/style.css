@@ -75,3 +75,84 @@ body {
   font-family: "Oxygen Mono", monospace;
   color: rgb(255, 255, 255);
 }
+
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.card {
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  width: clamp(20rem, calc(20rem + 2vw), 22rem);
+  overflow: hidden;
+  box-shadow: 0 0.1rem 1rem rgba(160, 159, 159, 0.1);
+  border-radius: 1em;
+}
+.card:hover {
+  transform: translate3D(0, -1px, 0) scale(1.02);
+  transition: 0.2s all ease-out;
+}
+
+.card__body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: rgb(229, 229, 229);
+  font-family: "Oxygen Mono", monospace;
+}
+
+.card__body h4 {
+  font-size: 1.5rem;
+  text-transform: capitalize;
+}
+.blog-post {
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  padding: 20px;
+  margin: 0 auto;
+}
+.banner-image {
+  padding-top: 1rem;
+}
+.banner-page-break {
+  border-top: 2px solid;
+  margin: 10px 0;
+  color: rgb(197, 194, 194);
+}
+
+.inline-code {
+  background-color: #45454517;
+  padding: 2px 4px;
+  border: 1px solid #4f4f4f;
+  /* border-radius: 4px; */
+  /* font-family: "Courier New", monospace; */
+  color: aliceblue;
+  font-weight: bold;
+}
+ol {
+  margin-left: 3rem;
+}
+h2 {
+  padding-top: 1rem;
+}
+
+body {
+  background-color: #1a1a1a;
+  color: #f6f6f6;
+  font-family: "Oxygen", monospace;
+}

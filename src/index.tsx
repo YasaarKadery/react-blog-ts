@@ -4,10 +4,11 @@ import ReactDOM from "react-dom/client";
 import HomePage from "./HomePage";
 import ErrorPage from "./ErrorPage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Projects from "./Projects";
+
 import "@fortawesome/fontawesome-free/css/all.css";
-import ProjectDetails from "./ProjectDetails";
+
 import DevBlog from "./Blogs/DevBlog";
+import CloudResumeChallenge from "./Blogs/CloudResumeChallenge";
 
 const router = createBrowserRouter([
   {
@@ -16,16 +17,12 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: "/projects",
-    element: <Projects />,
-  },
-  {
-    path: "/projects/:projectId",
-    element: <ProjectDetails />,
-  },
-  {
     path: "/projects/devblog",
-    element: <DevBlog></DevBlog>,
+    element: <DevBlog />,
+  },
+  {
+    path: "/projects/cloud-resume-challenge",
+    element: <CloudResumeChallenge />,
   },
 ]);
 

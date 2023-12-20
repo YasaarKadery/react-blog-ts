@@ -5,6 +5,10 @@
   justify-content: center;
   flex-direction: column;
 }
+.projects {
+  display: flex;
+  height: 100vh;
+}
 
 .home-page-image {
   display: flex;
